@@ -1,0 +1,42 @@
+
+#####################
+# /home/qnhoang81/transform/kernel_GB_folder/root
+# Last modified: 1287547431.1280077070
+
+dir /bin 0775 0 0
+dir /data 0775 0 0
+dir /dev 0775 0 0
+
+file /init.goldfish.rc /home/qnhoang81/transform/kernel_GB_folder/root/init.goldfish.rc 0664 0 0
+file /init.rc /home/qnhoang81/transform/kernel_GB_folder/root/init.rc 0644 0 0
+file /ueventd.rc /home/qnhoang81/transform/kernel_GB_folder/root/ueventd.rc 0644 0 0
+file /init /home/qnhoang81/transform/kernel_GB_folder/root/init 0775 0 0
+file /init.SPH-M920.rc /home/qnhoang81/transform/kernel_GB_folder/root/init.SPH-M920.rc 0664 0 0
+file /default.prop /home/qnhoang81/transform/kernel_GB_folder/root/default.prop 0664 0 0
+
+dir /lib 0775 0 0
+dir /lib/modules 0775 0 0
+file /lib/modules/rfs.ko /home/qnhoang81/transform/kernel_GB_folder/root/lib/modules/rfs.ko 0664 0 0
+file /lib/modules/param.ko /home/qnhoang81/transform/kernel_GB_folder/root/lib/modules/param.ko 0664 0 0
+file /lib/modules/crc32.ko /home/qnhoang81/transform/kernel_GB_folder/root/lib/modules/crc32.ko 0664 0 0
+file /lib/modules/dpram.ko /home/qnhoang81/transform/kernel_GB_folder/root/lib/modules/dpram.ko 0664 0 0
+file /lib/modules/xsr.ko /home/qnhoang81/transform/kernel_GB_folder/root/lib/modules/xsr.ko 0664 0 0
+file /lib/modules/xsr_stl.ko /home/qnhoang81/transform/kernel_GB_folder/root/lib/modules/xsr_stl.ko 0664 0 0
+file /lib/modules/vibrator.ko /home/qnhoang81/transform/kernel_GB_folder/root/lib/modules/vibrator.ko 0664 0 0
+
+
+dir /proc 0775 0 0
+dir /sys 0775 0 0
+
+dir /system 0775 0 0
+
+dir /sbin 0775 0 0
+file /sbin/adbd /home/qnhoang81/transform/kernel_GB_folder/root/sbin/adbd 0775 0 0
+file /sbin/kexec /home/qnhoang81/transform/kernel_GB_folder/root/sbin/kexec 0775 0 0
+file /sbin/su /home/qnhoang81/transform/kernel_GB_folder/root/sbin/su 4775 0 0
+file /sbin/sdx.sh /home/qnhoang81/transform/kernel_GB_folder/root/sbin/sdx.sh 0775 0 0
+file /sbin/rzscontrol /home/qnhoang81/transform/kernel_GB_folder/root/sbin/rzscontrol 0775 0 0
+file /sbin/remount /home/qnhoang81/transform/kernel_GB_folder/root/sbin/remount 0775 0 0
+file /sbin/busybox /home/qnhoang81/transform/kernel_GB_folder/root/sbin/busybox 0775 0 0
+file /sbin/ueventd /home/qnhoang81/transform/kernel_GB_folder/root/sbin/ueventd 0775 0 0
+
