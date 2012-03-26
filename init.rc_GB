@@ -385,84 +385,6 @@ on boot
 	chmod 0777 /sys/class/lightsensor/switch_cmd/lightsensor_file_state
 	chmod 0777 /sys/class/lightsensor/switch_cmd/lightsensor_file_cmd
 
-chown root root /dev/null               
-chown root root /dev/zero                
-chown root root /dev/full                
-chown root root /dev/ptmx                
-chown root root /dev/tty                 
-chown root root /dev/random             
-chown root root /dev/urandom            
-chown root root /dev/ashmem           
-chown root root /dev/binder 
-chown bluetooth bluetooth /dev/ttyMSM0            
-chown bluetooth bluetooth /dev/ttyHS0     
-chown system bluetooth /dev/uinput   
-chown system radio /dev/alarm         
-chown root system /dev/tty0           
-chown root graphics /dev/graphics/*   
-chown system graphics /dev/msm_hw3dc   
-chown root input /dev/input/*    
-chown root audio /dev/eac     
-chown root camera /dev/cam            
-chown system audio /dev/pmem_adsp*    
-chown system camera /dev/pmem_camera*  
-chown root system /dev/oncrpc/*    
-chown system audio /dev/adsp/*  
-chown system audio /dev/snd/*      
-chown system system /dev/mt9t013   
-chown system camera /dev/video0 
-chown system camera /dev/video1  
-chown system camera /dev/video2 
-chown system camera /dev/s3c-jpg 
-chown system system /dev/s3c-mem 
-chown system graphics /dev/s3c-mfc  
-chown system graphics /dev/s3c-g2d 
-chown system graphics /dev/s3c-g3d 
-chown system graphics /dev/pmem*
-chown system graphics /dev/pmem_gpu1
-chown system graphics /dev/graphics/*
-
-chmod 0666 /dev/msm_hw3dc
-
-	chmod 0666 /dev/snd/*
-	chmod 0660 /dev/adsp/*
-	chmod 0660 /dev/tty0
-	chmod 0660 /dev/graphics/*
-
-            
-chmod 777       /dev/video0
-chmod 777       /dev/video1         
-chmod 777       /dev/video14           
-chmod 777       /dev/graphics/fb0
-chmod 777       /dev/graphics/fb1
-chmod 777       /dev/graphics/fb2
-chmod 777       /dev/graphics/fb3
-chmod 777       /dev/graphics/fb4                     
-chmod 777       /dev/s3c-cmm                                           
-chmod 777       /dev/s3c-g2d                                           
-chmod 777       /dev/s3c-g3d                                           
-chmod 777       /dev/s3c-jpg                                           
-chmod 777       /dev/s3c-mem                                           
-chmod 777       /dev/s3c-mfc                                           
-chmod 777       /dev/s3c-pp                                             
-chmod 777       /dev/s3c-rotator                                       
-chmod 777       /dev/s3c_serial0                   
-chmod 777       /dev/s3c_serial1                   
-chmod 777       /dev/s3c_serial2               
-chmod 777       /dev/s3c_serial3
-chmod 777       /dev/controlC0
-chmod 777       /dev/snd/pcmC0D0c
-chmod 777       /dev/snd/pcmC0D0p
-chmod 777       /dev/dsp
-chmod 777       /dev/pmem*
-chmod 777	/dev/pmem_gpu1
-chmod 777       /dev/pmem_picture
-chmod 777       /dev/pmem_render
-chmod 777       /dev/pmem_jpeg
-chmod 777       /dev/pmem_preview
-chmod 0660	/dev/pmem_camera*  
-chmod 777       /dev/lis302dl
-
 # make hidden folder for divx authentication
     mkdir /data/.svix 0770 system system
 
@@ -477,16 +399,6 @@ chmod 777       /dev/lis302dl
     chmod 0777 /system/etc/audio/stream_earpiece.txt
 
 clast_start default
-
-# ueventd.rc fix
-    chown system audio /dev/snd/dsp
-    chown system audio /dev/snd/dsp1
-    chown system audio /dev/snd/mixer
-    chown system system /dev/lightsensor
-    chmod 0660 /dev/snd/dsp
-    chmod 0660 /dev/snd/dsp1
-    chmod 0660 /dev/snd/mixer
-    chmod 0666 /dev/lightsensor
 
 #bootsnd
     setprop audioflinger.bootsnd 1
@@ -648,44 +560,6 @@ setprop ro.radio.noril no
 setprop hw.nophone false
 
 service debuggerd /system/bin/debuggerd
-
-chown system radio /dev/ttys1
-chown system radio /dev/ttys2
-chown system radio /dev/ttys3
-chown system radio /dev/ttyS0
-chown system radio /dev/ttyS1
-chown system radio /dev/ttyS2
-chmod 777 /dev/ttyS0
-chmod 0777 /dev/ttys1
-chmod 0777 /dev/ttys2
-chmod 0777 /dev/ttys3
-chmod 0777 /dev/ttyS0
-chmod 0777 /dev/ttyS1
-chmod 0777 /dev/ttyS2
-chmod 0777 /dev/ttyS3
-chmod 0777 /dev/s3c_serial3
-chmod 0777 /dev/s3c_serial2
-chmod 0777 /dev/s3c_serial1
-chmod 0777 /dev/s3c_serial0
-
-chmod 0777 /dev/ttyCIQ0
-chmod 0777 /dev/ttyTRFB0
-chmod 0777 /dev/ttyCDMA0
-chmod 0777 /dev/ttyCSD0
-
-chmod 0777 /dev/ttygs3
-chmod 0777 /dev/ttygs2
-chmod 0777 /dev/ttygs1
-chmod 0777 /dev/ttygs0
-
-chmod 0777 /dev/i2c-5
-chmod 0777 /dev/i2c-4
-chmod 0777 /dev/i2c-3
-chmod 0777 /dev/i2c-2
-chmod 0777 /dev/i2c-0
-chmod 0777 /dev/socket
-chmod 777 /dev/*
-chmod 777/block/*
 
 mkdir /radio 0775 radio radio
 symlink /radio/modem.bin /dev/block/bml10
