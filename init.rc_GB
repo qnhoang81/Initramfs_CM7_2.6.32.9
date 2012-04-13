@@ -11,12 +11,14 @@ loglevel 4
     export PATH /bin:/sbin:/vendor/sbin:/system/sbin:/system/bin:/system/xbin:/xbin
     export LD_LIBRARY_PATH /vendor/lib:/system/lib:/system/lib/egl
     export ANDROID_BOOTLOGO 1
+    export ANDROID_CACHE /cache
     export ANDROID_ROOT /system
     export ANDROID_ASSETS /system/app
     export ANDROID_DATA /data
     export EXTERNAL_STORAGE /mnt/sdcard
     export ASEC_MOUNTPOINT /mnt/asec
     export LOOP_MOUNTPOINT /mnt/obb
+    export SD_EXT_DIRECTORY /sd-ext
     export BOOTCLASSPATH /system/framework/core.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/core-junit.jar
 
 # Backward compatibility
@@ -165,6 +167,16 @@ loglevel 4
     chown root log /proc/vmallocinfo
     chmod 0440 /proc/vmallocinfo
 
+# OpenFIMG
+   chown system graphics /dev/s3c_g3d
+   chown system graphics /dev/s3c_g2d
+   chown system graphics /dev/pmem*
+   chown system graphics /dev/pmem_gpu1
+   chmod 0666 /dev/s3c_g3d
+   chmod 0666 /dev/s3c_g2d
+   chmod 0666 /dev/pmem*
+   chmod 0666 /dev/pmem_gpu1
+
 # For display capture
     chmod 0666 /dev/graphics/fb0
     chmod 0666 /dev/graphics/fb1
@@ -203,6 +215,32 @@ loglevel 4
 
 # give system access to wpa_supplicant.conf for backup and restore
 	mkdir /data/log 0777 system system
+
+# Sound Permissions
+
+    symlink /dev/snd/pcmC0D0c /dev/pcmC0D0c
+    symlink /dev/snd/pcmC0D0p /dev/pcmC0D0p
+    symlink /dev/snd/controlC0 /dev/controlC0
+    symlink /dev/snd/timer /dev/timer
+    symlink /dev/snd/hwC0D0 /dev/hwC0D0
+    symlink /dev/snd/audio /dev/audio
+    symlink /dev/snd/mixer /dev/mixer
+    chown system audio /dev/pmem_adsp*
+    chown root audio /dev/snd/mixer
+    chown root audio /dev/snd/controlC0
+    chown root audio /dev/snd/pcmC0D0c
+    chown root audio /dev/snd/pcmC0D0p
+    chown root audio /dev/snd/timer
+    chown root audio /dev/snd/audio
+    chown root audio /dev/snd/hwC0D0
+    chmod 0660 /dev/pmem_adsp*
+    chmod 0777 /dev/snd/mixer
+    chmod 0777 /dev/snd/audio
+    chmod 0777 /dev/snd/pcmC0D0c
+    chmod 0777 /dev/snd/pcmC0D0p
+    chmod 0777 /dev/snd/controlC0
+    chmod 0777 /dev/snd/timer
+    chmod 0777 /dev/snd/hwC0D0
 
 #To enable WiFi
 
@@ -433,7 +471,7 @@ clast_start default
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chown bluetooth bluetooth /sys/class/rfkill/rfkill1/state
 
-write /sys/power/wake_lock 1
+# write /sys/power/wake_lock 1
 
     chown root root /system/bin/brcm_dutMode
     chmod 6777 /system/bin/brcm_dutMode
@@ -471,10 +509,14 @@ service busybox /sbin/busybox --install -s /bin/
 service sdx /sbin/sdx.sh
     oneshot
 
+## run ueventd
+service pre-init /sbin/pre-init.sh
+    oneshot
+
 ## Daemon processes to be run by init.
 ##
-#service ueventd /sbin/ueventd
-#    critical
+service ueventd /sbin/ueventd
+    critical
 
 service console /system/bin/sh
     user shell

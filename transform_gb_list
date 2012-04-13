@@ -9,6 +9,7 @@ dir /dev 0775 0 0
 
 file /init.goldfish.rc /home/qnhoang81/transform/kernel_GB_folder/root/init.goldfish.rc 0664 0 0
 file /init.rc /home/qnhoang81/transform/kernel_GB_folder/root/init.rc 0644 0 0
+#file /init.usb.transform.rc /home/qnhoang81/transform/kernel_GB_folder/root/init.usb.transform.rc 0644 0 0
 file /ueventd.rc /home/qnhoang81/transform/kernel_GB_folder/root/ueventd.rc 0644 0 0
 file /init /home/qnhoang81/transform/kernel_GB_folder/root/init 0775 0 0
 file /init.SPH-M920.rc /home/qnhoang81/transform/kernel_GB_folder/root/init.SPH-M920.rc 0664 0 0
@@ -38,5 +39,5 @@ file /sbin/sdx.sh /home/qnhoang81/transform/kernel_GB_folder/root/sbin/sdx.sh 07
 file /sbin/rzscontrol /home/qnhoang81/transform/kernel_GB_folder/root/sbin/rzscontrol 0775 0 0
 file /sbin/remount /home/qnhoang81/transform/kernel_GB_folder/root/sbin/remount 0775 0 0
 file /sbin/busybox /home/qnhoang81/transform/kernel_GB_folder/root/sbin/busybox 0775 0 0
-file /sbin/ueventd /home/qnhoang81/transform/kernel_GB_folder/root/sbin/ueventd 0775 0 0
+#file /sbin/ueventd /home/qnhoang81/transform/kernel_GB_folder/root/sbin/ueventd 0755 0 0
 
